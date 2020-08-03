@@ -3,7 +3,7 @@ Python script to generate unconfined or confined random walks (RW) in the presen
 
 ## Motivation
 <p align="center">
-	<img src="demo/motivation.pdf"/>
+	<img src="demo/motivation.png"  width="580" height="311"/>
 </p>
 
 For now, it is also assumed that the box is a unit cube with appropriate periodic boundary conditions
