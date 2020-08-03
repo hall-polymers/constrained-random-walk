@@ -17,5 +17,7 @@ input paramters are
 optional parameters
   ```x0, y0, z0``` - the inital location of the RW, a negative number will choose random location between 0 and L FIXME: does not check that these choices are reasonable, so an infinite loop can happen if you force the system to start inside a particle
   ```outputchains``` - boolean to determine if printing to lammpstrj format
-
-![demo_gif](demo/crw_demo.gif)
+ 
+<p align="center">
+	<img src="demo/crw_demo.gif" width="300" height="317"/>
+</p>
