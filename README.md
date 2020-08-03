@@ -2,9 +2,13 @@
 Python script to generate unconfined or confined random walks (RW) in the presence of walls. The fundamental assumption is that when the RW would pass through a wall, it instead reflects off
 
 ## Motivation
+Block copolymers (BCPs) are widely used in transport applications, as their chemically distinct polymer components locally microphase separate into domains with different material properties. For battery electrolyte applications, ions dissolve in and diffuse through one microphase while the other provides mechanical robustness, potentially allowing for both ion conduction and the ability to block lithium dendrite growth at the same time. The BCP systems of interest are locally ordered with well-known microphases such as hexagonally packed cylinders, lamellae, and the gyroid phases. However, on a longer length scale such as the width of a typical membrane, multiple grains with these structures are present, and these grains are often considered to be randomly oriented with respect to each other. Thus, it is difficult to predict which morphology is most transport-efficient, as shown in the figure below.
+
 <p align="center">
 	<img src="demo/motivation.png"  width="580" height="311"/>
 </p>
+
+Over long enough time scales, a diffusing particle’s motion follows a random walk. This script considers particles placed in the block copolymer conducting domain that move as random walks constrained by the surfaces of the domain (if any random walk step would to cross the surface, it instead is reflected). 
 
 For now, it is also assumed that the box is a unit cube with appropriate periodic boundary conditions
 (or equivalently, we only start in the unit cube, but the system expands into all space with the appropriate symmetry)
@@ -25,4 +29,8 @@ optional parameters
 
 <p align="center">
 	<img src="demo/crw_demo.gif" width="300" height="317"/>
+</p>
+
+<p align="center">
+	<img src="demo/trajectories.png"  width="410" height="440"/>
 </p>
