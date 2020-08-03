@@ -1,6 +1,11 @@
 # Constrained-random-walk
 Python script to generate unconfined or confined random walks (RW) in the presence of walls. The fundamental assumption is that when the RW would pass through a wall, it instead reflects off
 
+## Motivation
+<p align="center">
+	<img src="demo/motivation.pdf"/>
+</p>
+
 For now, it is also assumed that the box is a unit cube with appropriate periodic boundary conditions
 (or equivalently, we only start in the unit cube, but the system expands into all space with the appropriate symmetry)
 
@@ -17,7 +22,7 @@ input paramters are
 optional parameters
   ```x0, y0, z0``` - the inital location of the RW, a negative number will choose random location between 0 and L FIXME: does not check that these choices are reasonable, so an infinite loop can happen if you force the system to start inside a particle
   ```outputchains``` - boolean to determine if printing to lammpstrj format
- 
+
 <p align="center">
 	<img src="demo/crw_demo.gif" width="300" height="317"/>
 </p>
