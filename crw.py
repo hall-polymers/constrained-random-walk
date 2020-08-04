@@ -352,7 +352,6 @@ def crw(M, N, L, constraint, outputtraj, intrvl, fA, x0=-1, y0=-1, z0=-1):
 					output.write("%6i %6i %2i %9.4f %9.4f %9.4f %6i %6i %6i\n" % (m*(N+1)+1 + n, m+1, 1, r[0], r[1], r[2], int(ir[0]), int(ir[1]), int(ir[2])))
 				
 				if n % intrvl == 0:
-					print n, n//intrvl-1
 					dumpArr[n//intrvl-1] += ((L*ir[0]+r[0]-r0[0])**2 + (L*ir[1]+r[1]-r0[1])**2 + (L*ir[2]+r[2]-r0[2])**2)/M
 	
 	return dumpArr
@@ -377,13 +376,13 @@ def main(args):
 
 def parse_arguments():
 	parser = argparse.ArgumentParser()
-	parser.add_argument('-n', '--ntrial', type=int, default=10, help='Number of trials')
-	parser.add_argument('-p', '--nparticle', type=int, default=1, help='Number of particles in each trial')
-	parser.add_argument('-s', '--nstep', type=int, default=50000, help='Number of steps for each paricle in each trial')
+	parser.add_argument('-n', '--ntrial', type=int, default=100, help='Number of trials')
+	parser.add_argument('-p', '--nparticle', type=int, default=10, help='Number of particles in each trial')
+	parser.add_argument('-s', '--nstep', type=int, default=100000, help='Number of steps for each paricle in each trial')
 	parser.add_argument('-l', '--lbox', type=int, default=20, help='Box dimension (cubic box)')
 	parser.add_argument('-c', '--constraint', type=str, default='none', help='Constraint type')
 	parser.add_argument('-o', '--outputtraj', action='store_true', default=False, help='Print trajectory file')
-	parser.add_argument('-i', '--dumpintrvl', type=int, default=2500, help='MSD result interval')
+	parser.add_argument('-i', '--dumpintrvl', type=int, default=10000, help='MSD result interval')
 	parser.add_argument('-f', '--fA', type=float, default=0.35, help='Volume fraction of conducting (A) domain, only important to gyroid phase')
 	args = parser.parse_args()
 	return args
