@@ -2,13 +2,13 @@
 Python script to generate unconfined or confined random walks (RW) in the presence of walls. The fundamental assumption is that when the RW would pass through a wall, it instead reflects off.
 
 ## Motivation
-Block copolymers (BCPs) are widely used in transport applications, as their chemically distinct polymer components locally microphase separate into domains with different material properties. For battery electrolyte applications, ions dissolve in and diffuse through one microphase while the other provides mechanical robustness, potentially allowing for both ion conduction and the ability to block lithium dendrite growth at the same time. The BCP systems of interest are locally ordered with well-known microphases such as hexagonally packed cylinders, lamellae, and the gyroid phases. However, on a longer length scale such as the width of a typical membrane, multiple grains with these structures are present, and these grains are often considered to be randomly oriented with respect to each other. Thus, it is difficult to predict which morphology is most transport-efficient, as shown in the figure below.
+Block copolymers (BCPs) are widely used in transport applications, as their chemically distinct polymer components locally microphase separate into domains with different material properties. For battery electrolyte applications, ions dissolve in and diffuse through one microphase while the other provides mechanical robustness, potentially allowing for both ion conduction and the ability to block lithium dendrite growth at the same time. The BCP systems of interest are locally ordered with well-known microphases such as *hexagonally packed cylinders*, *lamellae*, and *gyroid* phases. However, on a longer length scale such as the width of a typical membrane, multiple grains with these structures are present, and these grains are often considered to be randomly oriented with respect to each other. Thus, it is difficult to predict which morphology is most transport-efficient, as shown in the figure below.
 
 <p align="center">
 	<img src="demo/motivation.png"  width="580" height="311"/>
 </p>
 
-Over long enough time scales, a diffusing particle’s motion follows a random walk. Thus, we develope this python script to perform random walk confined by various BCP nanostructures and to predict particle diffusion in those structures. Specifically, this script considers particles placed in the BCP conducting domain that move as random walks constrained by the surfaces of the domain (if any random walk step would to cross the surface, it instead is reflected). For now, it is also assumed that the box is a unit cube with appropriate periodic boundary conditions
+**Over long enough time scales, a diffusing particle’s motion follows a random walk. Thus, we develope this python script to perform random walk confined by various BCP nanostructures and to predict particle diffusion in those structures.** Specifically, this script considers particles placed in the BCP conducting domain that move as random walks constrained by the surfaces of the domain (if any random walk step would to cross the surface, it instead is reflected). For now, it is also assumed that the box is a unit cube with appropriate periodic boundary conditions
 (or equivalently, we only start in the unit cube, but the system expands into all space with the appropriate symmetry). Here's a demo of this script:
 
 <p align="center">
@@ -17,14 +17,17 @@ Over long enough time scales, a diffusing particle’s motion follows a random w
 
 ## Usage
 
-```$ python2 crw.py [-h] [-n NTRIAL] [-p NPARTICLE] [-s NSTEP] [-l LBOX] [-c CONSTRAINT] [-i DUMPINTRVL] [-f FA] [-o]```
-**Python 2 is required. Scipy and numpy packages are also required**
+```
+$ python2 crw.py [-h] [-n NTRIAL] [-p NPARTICLE] [-s NSTEP] [-l LBOX] [-c CONSTRAINT] [-i DUMPINTRVL] [-f FA] [-o]
+```
+
+*Python 2 is required. Scipy and numpy packages are also required*
 
 
 ## Input arguments of `crw.py`
 The input flags/arguments of `crw` are summarized in the following table:
 
-| Flags | Arguments     | Type | Explanation       | Default       | 
+| Flag | Argument     | Type | Explanation       | Default       | 
 | -----| --------------|:------:|-------------------|:-------------:|
 | `-n` | `ntrial` | `int` | Number of trials | `100`|
 | `-p` | `nparticle` | `int` | Number of particles in each trial (no collision)| `10` |
@@ -38,7 +41,7 @@ The input flags/arguments of `crw` are summarized in the following table:
 Note that for ```constraint```,
 ```none```: no constraint (no wall),
 ```lamellae```: assumes that the z=0 and z=L planes are walls,
-```cylinder```: assumes that the wall is a cylinder surface along z-dir, and its center is (L/2, L/2) and radius is 2/L,
+```cylinder```: assumes that the wall is a cylinder surface along z-dir, and its center is (L/2, L/2) and radius is 2/L, and
 ```gyroid```: assumes that the wall is the surface of a double gyroid unit cell.
 
 
@@ -65,7 +68,7 @@ Finally, if the tag ```-o``` is used, the trajectory of every random walk will b
 	<img src="demo/trajectories.png"  width="410" height="440"/>
 </p>
 
-### Reference in BibTeX:
+## Reference in BibTeX [[link]](https://pubs.acs.org/doi/abs/10.1021/acsmacrolett.8b00506)
 ```
 @article{shen2018diffusion,
   title={Diffusion in lamellae, cylinders, and double gyroid block copolymer nanostructures},
