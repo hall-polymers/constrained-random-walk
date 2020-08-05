@@ -39,10 +39,10 @@ The input flags/arguments of `crw` are summarized in the following table:
 | `-o` |  | | Output trajectory file (lammpstrj format for VMD) | `False`|
 
 Note that for ```constraint```,
-```none```: no constraint (no wall),
-```lamellae```: assumes that the z=0 and z=L planes are walls,
-```cylinder```: assumes that the wall is a cylinder surface along z-dir, and its center is (L/2, L/2) and radius is 2/L, and
-```gyroid```: assumes that the wall is the surface of a double gyroid unit cell.
+- ```none```: no constraint (no wall),
+- ```lamellae```: assumes that the z=0 and z=L planes are walls,
+- ```cylinder```: assumes that the wall is a cylinder surface along z-dir, and its center is (L/2, L/2) and radius is 2/L, and
+- ```gyroid```: assumes that the wall is the surface of a double gyroid unit cell.
 
 
 ## Output
@@ -62,7 +62,7 @@ The script returns (prints out) the average and the standard deviation from each
  100000   99438.5117   24490.8179
 ```
 
-Finally, if the tag ```-o``` is used, the trajectory of every random walk will be created in the format of a LAMMPS trajectory file. This allows you to visualize the trajectory in VMD. Example images are shown below:
+Finally, if the flag ```-o``` is used, the trajectory of every random walk will be created in the format of a LAMMPS trajectory file. This allows you to visualize the trajectory in VMD. Example images are shown below (different colors represent different trial/particle trajectories):
 
 <p align="center">
 	<img src="demo/trajectories.png"  width="410" height="440"/>
