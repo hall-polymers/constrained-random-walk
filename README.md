@@ -39,10 +39,10 @@ The input flags/arguments of `crw` are summarized in the following table:
 | `-o` |  | | Output trajectory file (lammpstrj format for VMD) | `False`|
 
 Note that for ```constraint```,
-- ```none```: no constraint (no wall),
-- ```lamellae```: assumes that the z=0 and z=L planes are walls,
-- ```cylinder```: assumes that the wall is a cylinder surface along z-dir, and its center is (L/2, L/2) and radius is 2/L, and
-- ```gyroid```: assumes that the wall is the surface of a double gyroid unit cell.
+- ```none```: no constraint (no wall)
+- ```lamellae```: assumes that the z=0 and z=L planes are walls
+- ```cylinder```: assumes that the wall is a cylinder surface along z-dir with radius of L/2 centered at (L/2, L/2)
+- ```gyroid```: assumes that the wall is the surface of a double gyroid unit cell
 
 
 ## Output
