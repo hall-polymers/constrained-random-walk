@@ -1,8 +1,10 @@
 # Constrained-random-walk
+
 Python script to generate unconfined or confined random walks (RW) in the presence of walls. The fundamental assumption is that when the RW would pass through a wall, it instead reflects off.
 
 ## Motivation
-Block copolymers (BCPs) are widely used in transport applications, as their chemically distinct polymer components locally microphase separate into domains with different material properties. For battery electrolyte applications, ions dissolve in and diffuse through one microphase while the other provides mechanical robustness, potentially allowing for both ion conduction and the ability to block lithium dendrite growth at the same time. The BCP systems of interest are locally ordered with well-known microphases such as *hexagonally packed cylinders*, *lamellae*, and *gyroid* phases. However, on a longer length scale such as the width of a typical membrane, multiple grains with these structures are present, and these grains are often considered to be randomly oriented with respect to each other. Thus, it is difficult to predict which morphology is most transport-efficient, as shown in the figure below.
+
+Block copolymers (BCPs) are widely used in transport applications, as their chemically distinct polymer components locally microphase separate into domains with different material properties. For battery electrolyte applications, ions dissolve in and diffuse through one microphase while the other provides mechanical robustness, potentially allowing for both ion conduction and the ability to block lithium dendrite growth at the same time. The BCP systems of interest are locally ordered with well-known microphases such as _hexagonally packed cylinders_, _lamellae_, and _gyroid_ phases. However, on a longer length scale such as the width of a typical membrane, multiple grains with these structures are present, and these grains are often considered to be randomly oriented with respect to each other. Thus, it is difficult to predict which morphology is most transport-efficient, as shown in the figure below.
 
 <p align="center">
 	<img src="demo/motivation.png"  width="580" height="311"/>
@@ -18,35 +20,37 @@ Block copolymers (BCPs) are widely used in transport applications, as their chem
 ## Usage
 
 ```
-$ python2 crw.py [-h] [-n NTRIAL] [-p NPARTICLE] [-s NSTEP] [-l LBOX] [-c CONSTRAINT] [-i DUMPINTRVL] [-f FA] [-o]
+$ python crw.py [-h] [-n NTRIAL] [-p NPARTICLE] [-s NSTEP] [-l LBOX] [-c CONSTRAINT] [-i DUMPINTRVL] [-f FA] [-o]
 ```
 
-*Python 2 is required. Scipy and numpy packages are also required*
-
+_Scipy and numpy packages are required_
 
 ## Input arguments of `crw.py`
+
 The input flags/arguments of `crw` are summarized in the following table:
 
-| Flag | Argument     | Type | Explanation       | Default       | 
-| -----| --------------|:------:|-------------------|:-------------:|
-| `-n` | `ntrial` | `int` | Number of trials | `100`|
-| `-p` | `nparticle` | `int` | Number of particles in each trial (no collision)| `10` |
-| `-s` | `nstep` | `int` | Number of steps for each paricle in each trial | `100000`|
-| `-l` | `lbox` | `int` | Box dimension (cubic box) | `20`|
-| `-c` | `constraint` | `str` | Constraint type (`none`, `lamellae`, `cylinder`, or `gyroid`)  | `none`|
-| `-i` | `dumpintrvl` | `int` | Frequency of the MSD result output | `10000`|
-| `-f` | `fA` | `float` | Volume fraction of conducting (A) domain (only matters for gyroid phase) | `0.35`|
-| `-o` |  | | Output trajectory file (lammpstrj format for VMD) | `False`|
+| Flag | Argument     |  Type   | Explanation                                                              | Default  |
+| ---- | ------------ | :-----: | ------------------------------------------------------------------------ | :------: |
+| `-n` | `ntrial`     |  `int`  | Number of trials                                                         |  `100`   |
+| `-p` | `nparticle`  |  `int`  | Number of particles in each trial (no collision)                         |   `10`   |
+| `-s` | `nstep`      |  `int`  | Number of steps for each paricle in each trial                           | `100000` |
+| `-l` | `lbox`       |  `int`  | Box dimension (cubic box)                                                |   `20`   |
+| `-c` | `constraint` |  `str`  | Constraint type (`none`, `lamellae`, `cylinder`, or `gyroid`)            |  `none`  |
+| `-i` | `dumpintrvl` |  `int`  | Frequency of the MSD result output                                       | `10000`  |
+| `-f` | `fA`         | `float` | Volume fraction of conducting (A) domain (only matters for gyroid phase) |  `0.35`  |
+| `-o` |              |         | Output trajectory file (lammpstrj format for VMD)                        | `False`  |
 
-Note that for ```constraint```,
-- ```none```: no constraint (no wall)
-- ```lamellae```: assumes that the z=0 and z=L planes are walls
-- ```cylinder```: assumes that the wall is a cylinder surface along z-dir with radius of L/2 centered at (L/2, L/2)
-- ```gyroid```: assumes that the wall is the surface of a double gyroid unit cell
+Note that for `constraint`,
 
+- `none`: no constraint (no wall)
+- `lamellae`: assumes that the z=0 and z=L planes are walls
+- `cylinder`: assumes that the wall is a cylinder surface along z-dir with radius of L/2 centered at (L/2, L/2)
+- `gyroid`: assumes that the wall is the surface of a double gyroid unit cell
 
 ## Output
+
 The script returns (prints out) the average and the standard deviation from each trial's mean square displacement of the random walk particle(s). Using the default input arguments, a representative output result is as follows:
+
 ```
    step      msd-avg      msd-std
       0       0.0000       0.0000
@@ -62,13 +66,14 @@ The script returns (prints out) the average and the standard deviation from each
  100000   99438.5117   24490.8179
 ```
 
-Finally, if the flag ```-o``` is used, the trajectory of every random walk will be created in the format of a LAMMPS trajectory file. This allows you to visualize the trajectory in VMD. Example images are shown below (different colors represent different trial/particle trajectories):
+Finally, if the flag `-o` is used, the trajectory of every random walk will be created in the format of a LAMMPS trajectory file. This allows you to visualize the trajectory in VMD. Example images are shown below (different colors represent different trial/particle trajectories):
 
 <p align="center">
 	<img src="demo/trajectories.png"  width="410" height="440"/>
 </p>
 
 ## Reference in BibTeX [[link]](https://pubs.acs.org/doi/abs/10.1021/acsmacrolett.8b00506)
+
 ```
 @article{shen2018diffusion,
   title={Diffusion in lamellae, cylinders, and double gyroid block copolymer nanostructures},
