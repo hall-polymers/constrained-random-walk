@@ -14,15 +14,15 @@ def crw(M, N, L, constraint, outputtraj, intrvl, fA, x0=-1, y0=-1, z0=-1):
     '''Method to perform constrained random walk
 
     Attributes:
-                M - Number of particles in each trial (no collision)
-                N - Number of steps for each paricle in each trial
-                L - Box dimension (cubic box)
-                constraint - Constraint type (none, lamellae, cylinder, or gyroid)
-                outputtraj - Whether to output a trajectory file
-                intrvl - Output MSD result every this many steps
-                fA - Volume fraction of conducting (A) domain (for gyroid constraint)
+        M - Number of particles in each trial (no collision)
+        N - Number of steps for each paricle in each trial
+        L - Box dimension (cubic box)
+        constraint - Constraint type (none, lamellae, cylinder, or gyroid)
+        outputtraj - Whether to output a trajectory file
+        intrvl - Output MSD result every this many steps
+        fA - Volume fraction of conducting (A) domain (for gyroid constraint)
         x0, y0, z0 - the inital location of the RW, a negative number will
-                                         choose random location between 0 and L
+            choose random location between 0 and L
     '''
 
     # FIXME: does not check that these choices are reasonable, so an
